@@ -1,5 +1,6 @@
 package com.example;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -82,8 +83,14 @@ public class WordCounterController {
     }
 
     @FXML
+    private void handleCloseFile() {
+        textArea.clear();
+        currentFile = null;
+    }
+
+    @FXML
     private void handleExit() {
-        stage.close();
+        Platform.exit();
     }
 
     @FXML
